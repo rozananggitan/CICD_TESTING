@@ -21,7 +21,8 @@ jobs:
         run: mvn --batch-mode --update-snapshots package
       test:
         - name: TEST API
+          needs: build
           runs-on: ubuntu-latest
           steps:
-      - name: Test API
-        run: mvn clean verify
+        - name: Test API
+          run: mvn clean verify
